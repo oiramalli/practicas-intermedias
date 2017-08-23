@@ -3,12 +3,14 @@
   <div class="gradient-block"></div>
   <div class="row header-content">
     <div class="logo">
-      <a href="/index.html">Mario Alvarado</a>
+      <a routerLink="/home">Mario Alvarado</a>
     </div>
     <nav id="main-nav-wrap">
       <ul class="main-navigation sf-menu">
-        <li class="current"><a href="/index.html" title="">Inicio</a></li>
-        <li><a href="/about.html" title="">Nosotros</a></li>
+        <li *ngFor="let listTitle of listTitles" [ngClass]="{'current':listTitle.current}">
+          <!-- { path: 'home', title: 'Inicio', priority: 0, top: true },             -->
+          <a routerLink="/{{listTitle.path}}">{{listTitle.title}}</a>
+        </li>
       </ul>
     </nav>
     <div class="triggers">
